@@ -13,4 +13,9 @@ RSpec.describe Resident, type: :model do
     it {should have_many(:courses).through(:resident_courses)}
   end
 
+  # before(:each) do
+  #   Resident.create!(name: "Jessica Fletcher", age: 65, occupation: "Mystery writer")
+  #   Resident.create!(name: "Dr. Seth Hazlitt", age: 70, occupation: "Town Doctor")
+  # end
+
 end
