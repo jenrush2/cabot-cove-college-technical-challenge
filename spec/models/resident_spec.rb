@@ -28,8 +28,10 @@ RSpec.describe Resident, type: :model do
 
   end
 
-  it "can list courses for a resident" do
-    expect(@jess.course_list).to eq([@crime_scenes, @finger])
+  describe "instance methods" do
+    it "can list courses for a resident" do
+      expect(@jess.course_list).to eq([@crime_scenes, @finger])
+    end
   end
 
 end
