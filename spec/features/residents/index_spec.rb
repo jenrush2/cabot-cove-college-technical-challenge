@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.describe Resident, type: :features do
     before(:each) do
-        @jess = Resident.create!(name: "Jessica Fletcher", age: 65, occupation: "Mystery writer")
         @seth = Resident.create!(name: "Dr. Seth Hazlitt", age: 70, occupation: "Town Doctor")
+        @jess = Resident.create!(name: "Jessica Fletcher", age: 65, occupation: "Mystery writer")
 
         @crime_scenes = Course.create!(name: "Crime Scenes 101")
         @finger = Course.create!(name: "Fingerprinting")
@@ -32,6 +32,12 @@ RSpec.describe Resident, type: :features do
             visit "/residents"
             
             expect(page).to have_content("Average Age: 67.5")
+        end
+
+        it "lists residents in alphabetical order" do
+            visit "/residents"
+
+            expect("Jessica Fletcher").to appear_before("Dr. Seth Hazlitt")
         end
     
     end

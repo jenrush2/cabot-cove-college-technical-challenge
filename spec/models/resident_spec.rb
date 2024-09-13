@@ -14,8 +14,10 @@ RSpec.describe Resident, type: :model do
   end
 
   before(:each) do
+    @amos = Resident.create!(name: "Amos Tupper", age: 60, occupation: "Sheriff")
     @jess = Resident.create!(name: "Jessica Fletcher", age: 65, occupation: "Mystery writer")
     @seth = Resident.create!(name: "Dr. Seth Hazlitt", age: 70, occupation: "Town Doctor")
+    
 
     @crime_scenes = Course.create!(name: "Crime Scenes 101")
     @finger = Course.create!(name: "Fingerprinting")
@@ -30,7 +32,11 @@ RSpec.describe Resident, type: :model do
 
   describe "class methods" do
     it "can calculate the average age of all residents" do
-      expect(Resident.average_age).to eq(67.5)
+      expect(Resident.average_age).to eq(65)
+    end
+
+    it "can put residents in alphabetical order" do
+      expect(Resident.alphabetical).to eq([@jess, @seth, @amos])
     end
   end
 

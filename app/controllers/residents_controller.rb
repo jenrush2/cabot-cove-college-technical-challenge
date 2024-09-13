@@ -1,6 +1,6 @@
 class ResidentsController < ApplicationController
     def index
-        @residents = Resident.all
+        @residents = Resident.all.alphabetical
         @resident_average_age = Resident.average_age
     end
     

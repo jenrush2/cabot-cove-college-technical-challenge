@@ -10,4 +10,8 @@ class Resident < ApplicationRecord
     def self.average_age
         average(:age)
     end
+
+    def self.alphabetical
+        order(name: :desc)
+    end
 end
