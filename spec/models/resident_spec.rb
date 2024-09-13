@@ -13,9 +13,23 @@ RSpec.describe Resident, type: :model do
     it {should have_many(:courses).through(:resident_courses)}
   end
 
-  # before(:each) do
-  #   Resident.create!(name: "Jessica Fletcher", age: 65, occupation: "Mystery writer")
-  #   Resident.create!(name: "Dr. Seth Hazlitt", age: 70, occupation: "Town Doctor")
-  # end
+  before(:each) do
+    @jess = Resident.create!(name: "Jessica Fletcher", age: 65, occupation: "Mystery writer")
+    @seth = Resident.create!(name: "Dr. Seth Hazlitt", age: 70, occupation: "Town Doctor")
+
+    @crime_scenes = Course.create!(name: "Crime Scenes 101")
+    @finger = Course.create!(name: "Fingerprinting")
+    @fight = Course.create!(name: "Fighting")
+
+    @crime_scenes.residents << @jess
+    @finger.residents << @jess
+    @finger.residents << @seth
+    @fight.residents << @seth
+
+  end
+
+  it "can list courses for a resident" do
+    expect(@jess.course_list).to eq([@crime_scenes, @finger])
+  end
 
 end

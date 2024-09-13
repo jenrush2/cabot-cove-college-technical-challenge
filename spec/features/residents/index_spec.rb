@@ -16,7 +16,7 @@ RSpec.describe Resident, type: :features do
             expect(page).to have_content("Name: Dr. Seth Hazlitt")
             expect(page).to have_content("Age: 70")
             expect(page).to have_content("Occupation: Town Doctor")
-            save_and_open_page
+          
         end
     
     end

@@ -1,0 +1,7 @@
+<h1 style = "text-align:center"> <%= @resident.name %> Info </h1>
+
+<h3> Courses: </h3>
+<% @courses.each do |course| %>
+    <p> <%= course.name %> </p>
+<% end %>
+
