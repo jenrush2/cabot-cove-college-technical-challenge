@@ -6,4 +6,8 @@ class Resident < ApplicationRecord
     def course_list
         courses
     end
+
+    def self.average_age
+        average(:age)
+    end
 end

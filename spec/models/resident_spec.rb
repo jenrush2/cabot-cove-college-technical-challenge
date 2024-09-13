@@ -28,6 +28,12 @@ RSpec.describe Resident, type: :model do
 
   end
 
+  describe "class methods" do
+    it "can calculate the average age of all residents" do
+      expect(Resident.average_age).to eq(67.5)
+    end
+  end
+
   describe "instance methods" do
     it "can list courses for a resident" do
       expect(@jess.course_list).to eq([@crime_scenes, @finger])
